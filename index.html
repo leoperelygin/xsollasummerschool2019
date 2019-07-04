@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+ <html>
+      <head>
+           <title>Xsolla</title>
+           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+           <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+           <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+      </head>
+      <body>
+           <br /><br />
+           <div class="container">
+                <h1 align="center">Xsolla Summer School 2019</h3><br />
+                <h3 align="center">Transaction Database</h3><br />
+                <table id="data-table" class="table table-bordered">
+                     <thead>
+                          <tr>
+                               <th>Transaction Name</th>
+                               <th>Transfer Date</th>
+                               <th>User ID</th>
+                               <th>Country</th>
+                          </tr>
+                     </thead>
+                </table>
+           </div>
+           <br />
+      </body>
+ </html>
+ <script>
+ $(document).ready(function(){
+      $('#data-table').DataTable({
+
+           "ajax"     :     "data.json",
+           "columns"     :     [
+                {     "data"     :     "transaction.project.name"},
+                {     "data"     :     "transaction.transfer_date"},
+                {     "data"     :     "user.id"},
+                {     "data"     :     "user.country"}
+
+           ],
+           "ordering": false
+      });
+ });
+ </script>
